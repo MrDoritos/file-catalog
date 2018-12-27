@@ -35,7 +35,8 @@ return matches(&b);
 bool matches(sha256 *cmp) {
 return (hashed && cmp->hashed && memcmp(cmp->hash, hash, 32) == 0);
 }
-private:
+bool ishashed() { return (hashed); }
 char* hash;
+private:
 bool hashed;
 };
