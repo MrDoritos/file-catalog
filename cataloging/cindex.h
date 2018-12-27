@@ -11,6 +11,7 @@
 #define FILE_TAG 0
 #define DISC_TAG 1
 #define FILE_DISC 2
+#define DISC_FILE 3
 
 class cindex {
 public:
@@ -28,6 +29,9 @@ return files.add(fil, id);
 }
 disc* adddisc(disc* dis) {
 return discs.add(dis);
+}
+disc* adddisc(disc* dis, int id) {
+return discs.add(dis, id);
 }
 tag* addtag(tag* tg) {
 return tags.add(tg);
@@ -72,7 +76,9 @@ return tags.get(id);
 file* getfile(int id) {
 return files.get(id);
 }
-
+disc* getdisc(int id) {
+return discs.get(id);
+}
 //REMOVE
 void removefile(int id) {
 files.remove(id);
@@ -120,6 +126,14 @@ tg = tags.get(b);
 if (dis == 0ULL || tg == 0ULL) return;
 link(dis, tg);
 break;
+case DISC_FILE:
+//If either object doesn't exist, return
+if (!discs.exist(a) && !files.exist(b)) return;
+fil = files.get(b);
+dis = discs.get(a);
+if (fil == 0ULL || dis == 0ULL) return;
+link(fil, dis);
+break;
 case FILE_DISC:
 //If either object doesn't exist, return
 if (!files.exist(a) && !discs.exist(b)) return;
@@ -149,6 +163,21 @@ std::cout << *tg->text << " ";
 }
 std::cout << "\r\n------" << std::endl;
 }
+}
+
+void listtags() {
+tag* tg;
+for (int i = tags.getnext(-1); i != -1; i = tags.getnext(i)) {
+tg = tags.get(i);
+if (tg != 0ULL) {
+std::cout << "------" << std::endl;
+std::cout << "|Id  : " << tg->id << std::endl;
+std::cout << "|Text: " << *tg->text << std::endl;
+std::cout << "------" << std::endl;
+}
+
+}
+
 }
 private:
 handler<tag> tags;

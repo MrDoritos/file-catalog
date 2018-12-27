@@ -22,8 +22,12 @@ this->name = new std::string(name);
 this->id = id;
 }
 
-void addfile(file *fil);
-void addtag(tag *tg);
+void addfile(file *fil) {
+files.add(fil->id);
+}
+void addtag(tag *tg) {
+tags.add(tg->id);
+}
 
 int id;
 

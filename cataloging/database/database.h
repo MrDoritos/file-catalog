@@ -1,4 +1,3 @@
-
 #include "writer.h"
 #include "reader.h"
 #include "cindex.h"
@@ -55,10 +54,12 @@ this->writer = &writer;
 int load() {
 loadtags();
 loadfiles();
+loaddiscs();
 }
 int save() {
 savetags();
 savefiles();
+savediscs();
 }
 
 cindex* index;
@@ -92,6 +93,7 @@ index->link(id, i, FILE_TAG);
 //FILE SAVING
 void savefiles() {
 long count = index->filecount();
+writer->writenum(count);
 for (int i = index->getnextfile(-1); i != -1; i = index->getnextfile(i)) {
 	savefile(index->getfile(i));
 }
@@ -110,6 +112,47 @@ savelinks(&fil->tags); //Save the file's tag links
 
 // END FILE SAVING
 
+//DISC SAVING
+
+void savediscs() {
+long count = index->disccount();
+writer->writenum(count);
+for (int i = index->getnextdisc(-1); i != -1; i = index->getnextfile(i)) {
+	savedisc(index->getdisc(i));
+}
+}
+
+void savedisc(disc* dis) {
+if (dis == 0ULL) return; //Return if we got a nullptr
+//ID and NAME
+writer->writenum(dis->id);
+writer->writestring(dis->name);
+savelinks(&dis->tags);
+savelinks(&dis->files);
+}
+
+// END DISC SAVING
+
+//DISC LOADING
+
+void loaddiscs() {
+long count = reader->getnum();
+for (int i = 0; i < count; i++) {
+loaddisc();
+}
+}
+void loaddisc() {
+long id = reader->getnum();
+std::string* string = reader->getstring();
+disc* dis = new disc(string);
+index->adddisc(dis, id);
+
+linkandload(id, &dis->tags, DISC_TAG);
+linkandload(id, &dis->files, DISC_FILE);
+
+}
+// END DISC LOADING
+
 //TAG-LINK SAVING
 
 void savelinks(jaggedbitarray* tags) {
@@ -120,6 +163,27 @@ writer->writenum(i);
 }
 
 // END TAG-LINK SAVING
+
+//LINK LOADING
+
+void loadlinks(jaggedbitarray* loadto) {
+long count = reader->getnum();
+for (long i = 0; i < count; i++) {
+loadto->add(int(reader->getnum()));
+}
+}
+
+//Loads an array of Ids and links them
+void linkandload(int id, jaggedbitarray* a, int type) {
+long count = reader->getnum();
+int v;
+for (long i = 0; i < count; i++) {
+a->add((v = int(reader->getnum())));
+index->link(id, v, type);
+}
+}
+
+// END LINK LOADING
 
 //HASH LOADING
 void loadhash(sha256* hash) {

@@ -76,11 +76,21 @@ tag* tss = index.gettag("loader");
 cout << "tdd == tss:" << (tdd == tss ? "true" : "false") << endl;
 
 index.listfiles();
+index.listtags();
 ofstream ffie;
 ffie.open("index.tdb");
 binwriter dbw = binwriter(ffie);
 database db = database(index, dbw);
 db.save();
+ffie.close();
 
+ifstream ffffs;
+ffffs.open("index.tdb");
+binreader dbr = binreader(ffffs);
+cindex inda = cindex();
+db = database(inda, dbr);
+db.load();
+inda.listfiles();
+inda.listtags();
 return 0;
 }
