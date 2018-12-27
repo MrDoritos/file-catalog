@@ -60,11 +60,17 @@ if (match != -1) { return gettag(match); } else { return addtag(text); }
 tag* addtag(tag* tg, int id) {
 return tags.add(tg, id);
 }
-//
+//COUNT
 int tagcount() { return tags.count(); }
+int filecount() { return files.count(); }
+int disccount() { return discs.count(); }
+
 //GET
 tag* gettag(int id) {
 return tags.get(id);
+}
+file* getfile(int id) {
+return files.get(id);
 }
 
 //REMOVE
@@ -74,6 +80,11 @@ files.remove(id);
 void removedisc(int id) {
 discs.remove(id);
 }
+//Iterating
+int getnexttag(int last) { return tags.getnext(last); }
+int getnextdisc(int last) { return discs.getnext(last); }
+int getnextfile(int last) { return files.getnext(last); }
+
 //Link
 void link(file *fil, disc *dis) {
 fil->adddisc(dis->id);
