@@ -9,6 +9,9 @@
 #include "sha.h"
 #include "cindex.h"
 #include "database.h"
+#include "tcpclient.h"
+#include "tcplistener.h"
+#include "writer.h"
 
 using namespace std;
 
@@ -73,6 +76,11 @@ tag* tss = index.gettag("loader");
 cout << "tdd == tss:" << (tdd == tss ? "true" : "false") << endl;
 
 index.listfiles();
+ofstream ffie;
+ffie.open("index.tdb");
+binwriter dbw = binwriter(ffie);
+database db = database(index, dbw);
+db.save();
 
 return 0;
 }
