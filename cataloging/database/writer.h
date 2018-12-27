@@ -1,4 +1,6 @@
-#include <ostream> include <string.h>
+#include <ostream>
+#include <string.h>
+#pragma once
 
 class binwriter {
 public:
@@ -48,6 +50,11 @@ writenum(length);
 (*stream) << string;
 
 }
+
+void write(const char* buffer, int length) {
+stream->write(buffer,length);
+}
+
 void writestring(std::string *string) {
 long length = string->length();
 
