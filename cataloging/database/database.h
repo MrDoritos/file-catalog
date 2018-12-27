@@ -53,10 +53,12 @@ this->index = &index;
 this->writer = &writer;
 }
 int load() {
-
+loadtags();
+loadfiles();
 }
 int save() {
-
+savetags();
+savefiles();
 }
 
 cindex* index;
@@ -87,6 +89,38 @@ index->link(id, i, FILE_TAG);
 }
 // END FILE LOADING
 
+//FILE SAVING
+void savefiles() {
+long count = index->filecount();
+for (int i = index->getnextfile(-1); i != -1; i = index->getnextfile(i)) {
+	savefile(index->getfile(i));
+}
+
+}
+
+void savefile(file* fil) {
+if (fil == 0ULL) return; //Return if we got a nullptr
+//ID and NAME
+writer->writenum(fil->id);
+writer->writestring(fil->name);
+
+savehash(fil->hash); //Save the file's hash
+savelinks(&fil->tags); //Save the file's tag links
+}
+
+// END FILE SAVING
+
+//TAG-LINK SAVING
+
+void savelinks(jaggedbitarray* tags) {
+writer->writenum(tags->count());
+for (int i = tags->getnext(-1); i != -1; i = tags->getnext(i)) {
+writer->writenum(i);
+}
+}
+
+// END TAG-LINK SAVING
+
 //HASH LOADING
 void loadhash(sha256* hash) {
 char b[32];
@@ -104,6 +138,17 @@ hash = new sha256();
 }
 
 // END HASH LOADING
+
+//HASH SAVING
+void savehash(sha256* hash) {
+char nullb[1] = { '\0' };
+if (hash->ishashed()) {
+writer->write(hash->hash, 32);
+} else {
+writer->write((char*)&nullb, 1);
+}
+}
+// END HASH SAVING
 
 //TAG LOADING
 void loadtags() {
@@ -123,7 +168,7 @@ index->addtag(tg, int(id));
 void savetags() {
 long count = index->tagcount();
 writer->writenum(count);
-for (long i = 0; i < count; i++) {
+for (long i = index->getnexttag(-1); i != -1; i = index->getnexttag(i)) {
 	savetag(index->gettag(i));
 }
 }
