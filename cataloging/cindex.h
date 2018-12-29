@@ -13,6 +13,18 @@
 #define FILE_DISC 2
 #define DISC_FILE 3
 
+//File status (included from file.h)
+/*
+#define MISSING 0
+#define AVAILABLE 1
+*/
+//Disc status (included from disc.h)
+/*
+#define AVAILABLE 1
+#define MISSING 0
+*/
+
+
 class cindex {
 public:
 cindex() {
@@ -85,6 +97,26 @@ files.remove(id);
 }
 void removedisc(int id) {
 discs.remove(id);
+}
+//STATUS
+int getstatus(int id) {
+return getstatus(getfile(id));
+}
+int getstatus(file *fil) {
+//Return MISSING if we get a nullptr
+if (fil == 0ULL) return MISSING;
+
+int status = 0;
+disc* dis;
+for (int i = fil->getnextdisc(-1); i != -1; i = fil->getnextdisc(i))
+{
+dis = getdisc(i);
+if (dis != 0ULL) {
+	status |= dis->status;
+}
+
+}
+return status;
 }
 //Iterating
 int getnexttag(int last) { return tags.getnext(last); }
