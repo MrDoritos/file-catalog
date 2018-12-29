@@ -76,8 +76,8 @@ for (long i = 0; i < count; i++)
 void loadfile() {
 long id = reader->getnum();
 std::string* string = reader->getstring();
-sha256* hash;
-loadhash(hash);
+sha256* hash = new sha256();
+loadhash(*hash);
 file* fil = new file(string, id, hash);
 index->addfile(fil, id);
 
@@ -186,7 +186,7 @@ index->link(id, v, type);
 // END LINK LOADING
 
 //HASH LOADING
-void loadhash(sha256* hash) {
+void loadhash(sha256& hash) {
 char b[32];
 char a = 0;
 reader->read(&a, 1);
@@ -194,10 +194,10 @@ if (a != 0) {
 //Hash
 reader->read(&b[1], 31);
 b[0] = a;
-hash = new sha256(&*b);
+hash = sha256(b);
 } else {
 //No hash
-hash = new sha256();
+hash = sha256();
 }
 }
 

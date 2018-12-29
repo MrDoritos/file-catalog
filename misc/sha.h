@@ -12,12 +12,21 @@ sha256() {
 hashed = false;
 }
 //We trust that you use a 32 byte hash
+/*
 sha256(char* hash) {
 
 this->hash = new char[32];
 memcpy(this->hash, hash, 32); // Copy the bytes in case the stack or one buffer is used
 
 hashed = true;
+}
+*/
+sha256(char hash[32]) {
+this->hash = new char[32];
+for (int i = 0; i < 32; i++)
+	this->hash[i] = hash[i];
+hashed = true;
+
 }
 int hashfile(std::string path) {
 int erno;

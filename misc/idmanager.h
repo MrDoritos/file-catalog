@@ -9,6 +9,5 @@ id = start;
 }
 int peekId() { return id; }
 int newId() { return id++; }
-private:
 int id;
 };

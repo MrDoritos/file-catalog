@@ -19,8 +19,11 @@ t->id = Tids.peekId();
 Ts.add(t, Tids.newId());
 return t;
 }
+
 T* add(T* t, int id) {
 Ts.add(t, id);
+//Update the idmanager to be above id
+Tids.id = (Tids.id > id ? Tids.id : id + 1);
 return t;
 }
 T* add(std::string* text) {
