@@ -1,7 +1,7 @@
 #!/bin/bash
 #I have no fucking idea why I wasted my time making this file
 echo PWD: $(pwd)
-file="tests.cpp"
+file="main.cpp"
 include="-Icataloging/database/ -IMoorepp/crypto/ -IMoorepp/encoding/base64/ -IMoorepp/console/ -IMoorepp/socket/ -IMoorepp/socket/tcp/ -IMoorepp/ -IMoorepp/http/ -IMoorepp/conversions/ -IMoorepp/data/ -Icataloging/ -Imisc/"
 opts="-fpermissive -w"
 
@@ -12,9 +12,9 @@ config2="-march=native -O2"
 config2n="personal-release"
 
 config3="-O2 -s"
-config3n="release"
+config3n="fcat"
 
-cnfg="1"
+cnfg="3"
 echo Compiling for $cnfg configuration\(s\)
 
 echo BUILDING $file...
