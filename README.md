@@ -29,23 +29,23 @@ and prepositions.
 Since we are working with streams of bytes (hence revolving around hashes),
 mime types must be included.
 
-A photo, for example
-`800x600`
-`12 megapixel`
-`no flash`
-Might have a standard for representing color
-`32 bit`
-`rgba`
-Use mime, no file extensions
+A photo, for example<br />
+`800x600`<br />
+`12 megapixel`<br />
+`no flash`<br />
+Might have a standard for representing color<br />
+`32 bit`<br />
+`rgba`<br />
+Use mime, no file extensions<br />
 `image/jpeg`
 
-`eiffel tower`
-`nighttime`
-`midnight`
-`2018-12-31T23:59:99-99:99` ISO 8601
-`paris`
-`france`
-Bit extreme
-`europe`
-`earth`
+`eiffel tower`<br />
+`nighttime`<br />
+`midnight`<br />
+`2018-12-31T23:59:99-99:99` ISO 8601<br />
+`paris`<br />
+`france`<br />
+Bit extreme<br />
+`europe`<br />
+`earth`<br />
 `48.8584° N, 2.2945° E`
