@@ -4,6 +4,7 @@
 #include "idmanager.h"
 #include "file.h"
 #include "disc.h"
+#include "sha.h"
 #include "ioa.h"
 #include "handler.h"
 #include <iostream>
@@ -34,6 +35,7 @@ discs = handler<disc>();
 }
 //ADD
 file* addfile(file* fil) {
+//Perform no dupe-checks
 return files.add(fil);
 }
 file* addfile(file* fil, int id) {
@@ -76,6 +78,17 @@ if (match != -1) { return gettag(match); } else { return addtag(text); }
 tag* addtag(tag* tg, int id) {
 return tags.add(tg, id);
 }
+//EXISTS
+bool containsfile(sha256& hash) {
+file* fil = 0ULL;
+for (int i = getnextfile(-1); i != -1; i = getnextfile(i))
+	if ((fil = getfile(i)) != 0ULL && *fil == hash) return true;
+return false;
+}
+bool fileexists(int id) {
+return files.exist(id);
+}
+
 //COUNT
 int tagcount() { return tags.count(); }
 int filecount() { return files.count(); }
@@ -87,6 +100,12 @@ return tags.get(id);
 }
 file* getfile(int id) {
 return files.get(id);
+}
+file* getfile(sha256& hash) {
+file* fil = 0ULL;
+for (int i = getnextfile(-1); i != -1; i = getnextfile(i))
+	if ((fil = getfile(i)) != 0ULL && *fil == hash) return fil;
+return fil;
 }
 disc* getdisc(int id) {
 return discs.get(id);

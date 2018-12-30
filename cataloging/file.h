@@ -60,7 +60,15 @@ this->hash = hash;
 this->name = name;
 this->id = id;
 }
-
+bool operator==(const file& b) {
+return (*b.hash == *hash);
+}
+bool operator==(const sha256& b) {
+return (*hash == b);
+}
+bool operator==(sha256* b) {
+return (*hash == *b);
+}
 //Add
 void addtag(int id) { tags.add(id); }
 void adddisc(int id) { discs.add(id); }
