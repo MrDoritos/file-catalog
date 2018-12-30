@@ -14,4 +14,38 @@ directory. Make sure to do --recursive when you do a clone, as I use my
 custom [Moorepp](http://localhost/) framework.
 You could also try my [build file](https://github.com/MrDoritos/file-catalog/blob/master/build.sh) for g++.
 
-# CLONE NOW BEFORE I PATENT THIS
+## What makes a proper tag?
+Nouns.
+
+Refrain from phrases, hypens, quotation marks, disambiguity, plurals,
+__articles__, uppercase (though should be automatically lowered in software),
+and prepositions.
+
+| Bad tag       | Good tag      |
+|---------------|---------------|
+| `a tree`      | `tree`        |
+| `LOWERCASE`   | `lowercase`   |
+
+Since we are working with streams of bytes (hence revolving around hashes),
+mime types must be included.
+
+A photo, for example
+`800x600`
+`12 megapixel`
+`no flash`
+Might have a standard for representing color
+`32 bit`
+`rgba`
+Use mime, no file extensions
+`image/jpeg`
+
+`eiffel tower`
+`nighttime`
+`midnight`
+`2018-12-31T23:59:99-99:99` ISO 8601
+`paris`
+`france`
+Bit extreme
+`europe`
+`earth`
+`48.8584° N, 2.2945° E`
