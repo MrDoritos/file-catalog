@@ -31,10 +31,10 @@ mime types must be included.
 
 A photo, for example<br />
 `800x600`<br />
-`12 megapixel`<br />
-`no flash`<br />
+`megapixels: 12`<br />
+`flash: off`<br />
 Might have a standard for representing color<br />
-`32 bit`<br />
+`bits per pixel: 32`<br />
 `rgba`<br />
 Use mime, no file extensions<br />
 `image/jpeg`
@@ -49,3 +49,43 @@ Bit extreme<br />
 `europe`<br />
 `earth`<br />
 `48.8584° N, 2.2945° E`
+
+# This documentation is a bit wank, good thing nobody ever sees this
+## The standard?
+Mime. <br />
+Absolutely neccessary, every submission needs one <br />
+If in doubt, `application/octet-stream` (DON'T!!) <br />
+If there is not a mime for that file, we can define our own <br />
+
+### Representing images
+#### Color & Depth
+Hopefully your images aren't encoded funny..<br />
+`bits per pixel: (bits)` Bits per Pixel <br />
+`color mode: (r)(g)(b)(a)` Red Green Blue Alpha. Seriously if you have to remove $
+`(width)x(height)` Width times height, seems pretty simple <br />
+#### Photo info
+If a camera took it, you gotta include these (most of the time) <br />
+`flash: (on/off)` <br />
+~~`shutter time: (ISO 8601 time format)`~~ JK <br />
+`shutter time: (in fractions)` (1/8000, 1/874, 1) <br />
+`technology: (image technology)` <br />
+#### Image info
+`time taken: (ISO 8601 time format)` <br />
+`model: (camera model)` <br />
+`manufacturer: (camera manufacturer)` <br />
+`gps altitude: (in meters)` <br />
+`gps latitude: (honestly idk how to represent this so whatever feels great)` <br $
+`gps longitude: (same thing as above i assume)` <br />
+#### Media info
+`lossless: (true/false)` <br />
+`raw: (true/false)` <br />
+`compression method: (none/jpeg/png)` I don't know if I have my facts straight <b$
+`encoding: (png/bitmap/jpeg)` <br />
+### Representing audio
+#### I'm tired of typing the html break
+`bitrate: (bits per second)` <br />
+`lossless: (true/false)` <br />
+`container: (mp3, flac, aac, midi)` <br />
+#### Alright I'm done typing, I'm doing something else
+
+
