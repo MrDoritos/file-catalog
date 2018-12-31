@@ -38,6 +38,16 @@ for (int i = 0; i < 32; i++)
 	hash[i] = s[i];
 hashed = true;
 }
+int hashfile(ifstream& f) {
+int erno;
+std::vector<unsigned char> s(picosha2::k_digest_size);
+picosha2::hash256(f, s.begin(), s.end());
+this->hash = new char[32];
+for (int i = 0; i < 32; i++)
+	hash[i] = s[i];
+hashed = true;
+}
+
 bool operator==(const sha256 b) {
 return matches(&b);
 }
