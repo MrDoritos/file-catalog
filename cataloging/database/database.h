@@ -85,7 +85,7 @@ long count = reader->getnum();
 long n = 0;
 for (int i = 0; i < count; i++) {
 n = reader->getnum();
-index->link(id, i, FILE_TAG);
+index->link(id, n, FILE_TAG);
 }
 }
 // END FILE LOADING
