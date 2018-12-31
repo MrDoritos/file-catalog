@@ -62,6 +62,12 @@ if (arg == "add") param.ret |= ADD;
 //Tag
 else if (arg == "tag") param.ret |= TAG;
 else if (arg == "detag") param.ret |= DETAG;
+//File
+else if (arg == "file") param.ret |= FILE;
+else if (arg == "files") param.ret |= FILE;
+//Disc
+else if (arg == "disc") param.ret |= DISC;
+else if (arg == "discs") param.ret |= DISC;
 //Show
 else if (arg == "show") param.ret |= SHOW;
 //Id

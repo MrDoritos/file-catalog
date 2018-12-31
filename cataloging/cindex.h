@@ -243,7 +243,7 @@ std::cout << "------" << std::endl;
 }
 
 }
-private:
+//private:
 handler<tag> tags;
 handler<file> files;
 handler<disc> discs;

@@ -6,10 +6,9 @@
 
 template<class T>
 class handler {
-private:
+public:
 //Underlying array of Ts
 intobjectarray<T> Ts;
-public:
 handler() {
 Ts = intobjectarray<T>(16);
 Tids = idmanager();
