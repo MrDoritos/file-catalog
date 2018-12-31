@@ -192,8 +192,7 @@ char a = 0;
 reader->read(&a, 1);
 if (a != 0) {
 //Hash
-reader->read(&b[1], 31);
-b[0] = a;
+reader->read(&b[0], 32);
 hash = sha256(b);
 } else {
 //No hash
@@ -206,7 +205,9 @@ hash = sha256();
 //HASH SAVING
 void savehash(sha256* hash) {
 char nullb[1] = { '\0' };
+char yesb[1] = { 0x01 };
 if (hash->ishashed()) {
+writer->write((char*)&yesb, 1);
 writer->write(hash->hash, 32);
 } else {
 writer->write((char*)&nullb, 1);
