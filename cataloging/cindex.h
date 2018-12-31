@@ -88,7 +88,20 @@ return false;
 bool fileexists(int id) {
 return files.exist(id);
 }
-
+bool tagexists(const char* text) {
+int length = 0;
+int pos = 0;
+int match = -1;
+tag*tg;
+char b;
+std::string str = string(text);
+int sum = tag::chksum(str);
+for (int i = tags.getnext(-1); i != -1; i = tags.getnext(i)) {
+tg = tags.get(i);
+if (tg != nullptr && tg->sum == sum && *tg->text == str) { return true; }
+}
+return false;
+}
 //COUNT
 int tagcount() { return tags.count(); }
 int filecount() { return files.count(); }
