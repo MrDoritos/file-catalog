@@ -26,6 +26,8 @@ else
 echo ...FAIL
 fi
 
+exit
+
 echo BUILDING $file...
 g++ $file $include $opts $config2 -o $config2n
 if [ $? == 0 ]
