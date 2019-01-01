@@ -64,6 +64,9 @@ void addtag(tag *tg) {
 tags.add(tg->id);
 }
 
+int getnextfile(int last) { return files.getnext(last); }
+int getnexttag(int last) { return tags.getnext(last); }
+
 int id;
 
 std::string* name;
