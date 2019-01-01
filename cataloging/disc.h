@@ -60,8 +60,14 @@ this->status = status;
 void addfile(file *fil) {
 files.add(fil->id);
 }
+void addfile(int id) {
+files.add(id);
+}
 void addtag(tag *tg) {
 tags.add(tg->id);
+}
+void addtag(int id) {
+tags.add(id);
 }
 
 int getnextfile(int last) { return files.getnext(last); }

@@ -55,11 +55,13 @@ int load() {
 loadtags();
 loadfiles();
 loaddiscs();
+return 0;
 }
 int save() {
 savetags();
 savefiles();
 savediscs();
+return 0;
 }
 
 cindex* index;

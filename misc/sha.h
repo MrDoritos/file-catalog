@@ -29,7 +29,7 @@ hashed = true;
 
 }
 int hashfile(std::string path) {
-int erno;
+int erno = 0;
 std::ifstream f(path, std::ios::binary);
 std::vector<unsigned char> s(picosha2::k_digest_size);
 picosha2::hash256(f, s.begin(), s.end());
@@ -37,18 +37,20 @@ this->hash = new char[32];
 for (int i = 0; i < 32; i++)
 	hash[i] = s[i];
 hashed = true;
+return erno;
 }
 int hashfile(ifstream& f) {
-int erno;
+int erno = 0;
 std::vector<unsigned char> s(picosha2::k_digest_size);
 picosha2::hash256(f, s.begin(), s.end());
 this->hash = new char[32];
 for (int i = 0; i < 32; i++)
 	hash[i] = s[i];
 hashed = true;
+return erno;
 }
 
-bool operator==(const sha256 b) {
+bool operator==(sha256 b) {
 return matches(&b);
 }
 bool matches(sha256 *cmp) {
