@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="file-catalog" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/file-catalog" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="cataloging" />
+					<Add directory="cataloging/database" />
+					<Add directory="Moorepp/console" />
+					<Add directory="Moorepp/http" />
+					<Add directory="Moorepp/data" />
+					<Add directory="Moorepp" />
+					<Add directory="Moorepp/conversions" />
+					<Add directory="Moorepp/socket/tcp" />
+					<Add directory="Moorepp/crypto" />
+					<Add directory="Moorepp/encoding/base64" />
+					<Add directory="misc" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/file-catalog" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Moorepp/console/console.h" />
+		<Unit filename="Moorepp/console/consoletools.h" />
+		<Unit filename="Moorepp/console/gui.h" />
+		<Unit filename="Moorepp/conversions/atoh.h" />
+		<Unit filename="Moorepp/conversions/atoi.h" />
+		<Unit filename="Moorepp/conversions/itoa.h" />
+		<Unit filename="Moorepp/crypto/crypto.h" />
+		<Unit filename="Moorepp/crypto/shatwofivesix.h" />
+		<Unit filename="Moorepp/data/bitarray.h" />
+		<Unit filename="Moorepp/data/intobjectarray.h" />
+		<Unit filename="Moorepp/data/ioa.h" />
+		<Unit filename="Moorepp/data/jaggedbitarray.h" />
+		<Unit filename="Moorepp/data/jba.h" />
+		<Unit filename="Moorepp/encoding/base64/base64encodedecode.h" />
+		<Unit filename="Moorepp/http/httpbodgeparser.h" />
+		<Unit filename="Moorepp/lodepng.cpp" />
+		<Unit filename="Moorepp/lodepng.h" />
+		<Unit filename="Moorepp/socket/tcp/sockaddr.h" />
+		<Unit filename="Moorepp/socket/tcp/tcpclient.h" />
+		<Unit filename="Moorepp/socket/tcp/tcplistener.h" />
+		<Unit filename="cataloging/cindex.h" />
+		<Unit filename="cataloging/database/database.h" />
+		<Unit filename="cataloging/database/reader.h" />
+		<Unit filename="cataloging/database/writer.h" />
+		<Unit filename="cataloging/disc.h" />
+		<Unit filename="cataloging/file.h" />
+		<Unit filename="cataloging/handler.h" />
+		<Unit filename="cataloging/paramparser.h" />
+		<Unit filename="cataloging/tag.h" />
+		<Unit filename="cataloging/taghandler.h" />
+		<Unit filename="cataloging/tagmanager.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="misc/idmanager.h" />
+		<Unit filename="misc/sha.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
