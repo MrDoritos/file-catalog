@@ -28,6 +28,7 @@ int id;
 };
 
 int parse(params& param, int argc, char** argv) {
+int errn = 0;
 // We got no arguments except for the executable
 param.base =0;
 param.ret = 0;
@@ -35,7 +36,7 @@ param.name =0;
 param.text =0;
 param.nums =0;
 param.id   =0;
-if (argc < 2) return;
+if (argc < 2) return errn;
 std::string arg;
 
 // Figure out the first argument
@@ -99,4 +100,5 @@ param.ret |= TAGTEXT;
 
 }
 
+return errn;
 }
