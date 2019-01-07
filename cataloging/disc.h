@@ -56,6 +56,9 @@ this->id = id;
 this->status = status;
 }
 
+int filecount() {
+return files.count();
+}
 
 void addfile(file *fil) {
 files.add(fil->id);

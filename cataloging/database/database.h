@@ -63,6 +63,11 @@ savefiles();
 savediscs();
 return 0;
 }
+int savediscindex(disc* _disc) {
+writer.writenum(_disc->id);
+writer.writestring(_disc->name);
+
+}
 
 cindex* index;
 private:
@@ -100,6 +105,12 @@ for (int i = index->getnextfile(-1); i != -1; i = index->getnextfile(i)) {
 	savefile(index->getfile(i));
 }
 
+}
+
+void savediscfiles(disc* _disc) {
+long count = _disc->filecount();
+writer->writenum(count);
+for (int i = _disc->getnextfile)
 }
 
 void savefile(file* fil) {
