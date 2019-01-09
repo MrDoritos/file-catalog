@@ -11,6 +11,8 @@
 #include "jba.h"
 #include "ioa.h"
 #include "atoh.h"
+#include "cursesgui.h"
+
 #include "sha.h"
 #include "cindex.h"
 #include "database.h"
