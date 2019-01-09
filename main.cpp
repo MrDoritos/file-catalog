@@ -59,12 +59,17 @@ void hbar(int width);
 void hbar();
 
 int main(int argc, char** argv) {
+
+
 console::bindioctl();
 _argc = argc;
 _argv = argv;
 params params;
 parse(params, argc, argv);
 load("index.tdb", _index);
+gui g(_index);
+g.begin();
+/*
 //_index.listfiles();
 //_index.listtags();
 if (BASE_HAS(FILE))
@@ -77,6 +82,8 @@ else if (BASE_HAS(LIST))
 
 if (changesmade)
 	save("index.tdb", _index);
+
+*/
 return 0;
 }
 
