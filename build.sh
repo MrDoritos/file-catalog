@@ -3,7 +3,7 @@
 echo PWD: $(pwd)
 file="main.cpp"
 include="-Icataloging/database/ -IMoorepp/crypto/ -IMoorepp/encoding/base64/ -IMoorepp/console/ -IMoorepp/socket/ -IMoorepp/socket/tcp/ -IMoorepp/ -IMoorepp/http/ -IMoorepp/conversions/ -IMoorepp/data/ -Icataloging/ -Imisc/"
-opts="-fpermissive -w"
+opts="-fpermissive -w -lncurses"
 
 config1="-march=native -ggdb"
 config1n="debug"
@@ -26,7 +26,7 @@ else
 echo ...FAIL
 fi
 
-#exit
+exit
 
 echo BUILDING $file...
 g++ $file $include $opts $config2 -o $config2n
