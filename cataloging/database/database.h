@@ -51,6 +51,12 @@ database(cindex &index, binwriter &writer) {
 this->index = &index;
 this->writer = &writer;
 }
+void newWriter(binwriter* writer) {
+    this->writer = writer;
+}
+void newReader(binreader* reader) {
+    this->reader = reader;
+}
 int load() {
 loadtags();
 loadfiles();
