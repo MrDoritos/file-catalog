@@ -1,14 +1,14 @@
 #!/bin/bash
 #I have no fucking idea why I wasted my time making this file
 echo PWD: $(pwd)
-file="server.cpp"
+file=$*
 include="-Iconsole-gui/headers/ -Inetwork/ -Icataloging/database/ -IMoorepp/crypto/ -IMoorepp/encoding/base64/ -IMoorepp/console/ -IMoorepp/socket/ -IMoorepp/socket/tcp/ -IMoorepp/ -IMoorepp/http/ -IMoorepp/conversions/ -IMoorepp/data/ -Icataloging/ -Imisc/"
 opts="-fpermissive -w -lncurses"
 
 config1="-march=native -ggdb"
 config1n="debug"
 
-config2="-march=native -O2"
+config2="-march=native -O2 -s"
 config2n="personal-release"
 
 config3="-O2 -s"
