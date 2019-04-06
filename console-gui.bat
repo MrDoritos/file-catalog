@@ -18,7 +18,7 @@ set "sources=%sourcePath%gameEngine.cpp %sourcePath%imath.cpp %sourcePath%lodepn
 ::l8r
 
 @echo on
-%userprofile%\Downloads\pocketcpp-0.7\pocketcpp\MinGW\bin\g++ %includes% %sources% %arg% main.cpp
+%userprofile%\Downloads\pocketcpp-0.7\pocketcpp\MinGW\bin\g++ %includes% %sources% %arg% console-gui.cpp
 if "%errorlevel%" NEQ "0" (
 pause
 )
