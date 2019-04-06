@@ -1,8 +1,8 @@
 #!/bin/bash
 #I have no fucking idea why I wasted my time making this file
 echo PWD: $(pwd)
-file="main.cpp"
-include="-Icataloging/database/ -IMoorepp/crypto/ -IMoorepp/encoding/base64/ -IMoorepp/console/ -IMoorepp/socket/ -IMoorepp/socket/tcp/ -IMoorepp/ -IMoorepp/http/ -IMoorepp/conversions/ -IMoorepp/data/ -Icataloging/ -Imisc/"
+file="server.cpp"
+include="-Iconsole-gui/headers/ -Inetwork/ -Icataloging/database/ -IMoorepp/crypto/ -IMoorepp/encoding/base64/ -IMoorepp/console/ -IMoorepp/socket/ -IMoorepp/socket/tcp/ -IMoorepp/ -IMoorepp/http/ -IMoorepp/conversions/ -IMoorepp/data/ -Icataloging/ -Imisc/"
 opts="-fpermissive -w -lncurses"
 
 config1="-march=native -ggdb"

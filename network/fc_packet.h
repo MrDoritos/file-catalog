@@ -7,4 +7,4 @@ class fc_packet : protected packet {
 	fc_packet(int type) {
 		
 	}
-}
+};

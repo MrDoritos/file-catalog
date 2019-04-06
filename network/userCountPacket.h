@@ -22,4 +22,4 @@ class userCountPacket : private fc_packet {
 	}
 	private:
 	int userCount;
-}
+};

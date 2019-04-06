@@ -15,4 +15,4 @@ namespace fc {
 		private:
 		tcpclient* cli;		
 	}	
-}
+};
