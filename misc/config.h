@@ -11,14 +11,12 @@ class config {
 	int save() {
 		save(_configPath);
 	}
-	virtual int save(std::ostream& file) {
-
-	}
 	int save(char* path) {
 		std::ofstream file(path);
 		if (!file.is_open())
 			return 1;
-		return save(file);
+		fsave(file);
+		return 0;
 	}
 	int load() {
 		load(_configPath);
@@ -27,14 +25,12 @@ class config {
 		std::ifstream file(path);
 		if (!file.is_open())
 			return 1;
-		return load(file);
+		fload(file);
+		return 0;
 	}
-	virtual int load(std::istream& file) {
-
-	}
-	virtual void defaultConfig() {
-
-	}
+	virtual void fsave(std::ostream& file) = 0;
+	virtual void fload(std::istream& file) = 0;
+	virtual void defaultConfig() = 0;
 	private:
 	char* _configPath;
 };

@@ -12,10 +12,10 @@ serverConfig(char* path)
 {
 	defaultConfig();
 }
-int load(std::ostream& file) override {
-std::cout <<"Here" <<std::endl;
+void fload(std::istream& file) override {
+	
 }
-int save(std::istream& file) override {
+void fsave(std::ostream& file) override {
 
 }
 void defaultConfig() override {

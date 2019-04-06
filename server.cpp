@@ -1,11 +1,11 @@
-#include "userCountPacket.h"
-#include "tcplistener.h"
-#include "tcpclient.h"
+//#include "userCountPacket.h"
+//#include "tcplistener.h"
+//#include "tcpclient.h"
 #include <iostream>
 #include "serverConfig.h"
 
 int main() {
-serverConfig cnfg("config.txt");
+serverConfig cnfg((char*)"config.txt");
 cnfg.load();
 /*
 tcplistener p = tcplistener();
