@@ -7,15 +7,17 @@ class serverConfig
 : public config
 {
 public:
+using config::save;
+using config::load;
 serverConfig(char* path)
 :config(path)
 {
 	defaultConfig();
 }
-void fload(std::istream& file) override {
+void load(std::istream& file) override {
 	
 }
-void fsave(std::ostream& file) override {
+void save(std::ostream& file) override {
 
 }
 void defaultConfig() override {
