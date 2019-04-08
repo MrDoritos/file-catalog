@@ -1,4 +1,4 @@
-#include "userCountPacket.h"
+//#include "userCountPacket.h"
 #include "tcplistener.h"
 #include "tcpsocketclient.h"
 #include <iostream>
@@ -21,12 +21,12 @@ tcpsocketclient cl;
 while (1) {
 p.accept_client(cl);
 std::cout << "New socket" << std::endl;
-cl.cliwrite((void*)"Tu eres feo", 11);
+cl.sockwrite((void*)"Tu eres feo", 11);
 char buf[256];
-cl.cliread(&buf, 4);
+cl.sockread(&buf, 4);
 std::string str(buf, 4);
 std::cout << str << std::endl;
-cl.cliclose();
+cl.sockclose();
 }
 
 return 0;

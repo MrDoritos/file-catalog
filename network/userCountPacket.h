@@ -1,4 +1,5 @@
 #include "fc_packet.h"
+#include "tcpsocketclient.h"
 #include "tcpclient.h"
 
 class userCountPacket : private fc_packet {
