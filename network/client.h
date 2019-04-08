@@ -1,8 +1,13 @@
 #include "packet.h"
+#include "tcpclient.h"
 
 namespace fc {
 	class client {
 		public:
+		client() {}
+		client(client* cl) {
+			this->cli = cl->cli;
+		}
 		client(tcpclient& cli) {
 			this->cli = &cli;
 		}
@@ -14,5 +19,5 @@ namespace fc {
 		}
 		private:
 		tcpclient* cli;		
-	}	
-};
+	};
+}

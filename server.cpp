@@ -23,9 +23,11 @@ p.accept_client(cl);
 std::cout << "New socket" << std::endl;
 cl.sockwrite((void*)"Tu eres feo", 11);
 char buf[256];
-cl.sockread(&buf, 4);
-std::string str(buf, 4);
+int r = cl.sockread(&buf, 256);
+if (r > 0) {
+std::string str(buf, r);
 std::cout << str << std::endl;
+}
 cl.sockclose();
 }
 

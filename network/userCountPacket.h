@@ -1,5 +1,4 @@
 #include "fc_packet.h"
-#include "tcpsocketclient.h"
 #include "tcpclient.h"
 
 class userCountPacket : private fc_packet {
@@ -10,10 +9,10 @@ class userCountPacket : private fc_packet {
 			userCount = 0;
 		}
 	void write(tcpclient& cli) override {
-		cli.cliwrite((void*)&userCount, 4);
+		cli.sockwrite((void*)&userCount, 4);
 	}
 	void read(tcpclient& cli) override {
-		cli.cliread((void*)&userCount, 4);
+		cli.sockread((void*)&userCount, 4);
 	}
 	int getUserCount() {
 		return userCount;
