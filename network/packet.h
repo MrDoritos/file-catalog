@@ -1,9 +1,24 @@
 #include "tcpclient.h"
 
-class packet {
-protected:
-packet() {}
+struct packet {
 public:
-virtual void write(tcpclient& net) = 0;
-virtual void read(tcpclient& net) = 0;
+packet(packet& pck) {
+	memcpy(this, &pck, sizeof(packet));
+}
+packet(packet* pck) {
+	memcpy(this, pck, sizeof(packet));
+}
+packet() {
+type = 0;
+datalength = 0;
+chksum = 0;
+}
+packet(int type, long datalength, long chksum) {
+this->type = type;
+this->datalength = datalength;
+this->chksum = chksum;
+}
+int type;
+long datalength;
+long chksum;
 };
