@@ -22,6 +22,8 @@ On the other hand, I will provide a framework for anyone who decides to use the 
 
 * I did some reorganizing of data structure classes so that they are actually readable. I wrote the C++ version of this library (I've written this same library a few times for some reason) in nano, before I learned about the -i flag. Not only were there no tabs in the original code, I didn't know anything about good looking C++.
 
+* Declaration and implementation (header and source) files are now kept seperate. This improves build time and makes cross reference bugs easier to kill. Template classes are still one file, obviously.
+
 #### Other
 
-* Project will use cmake in the future. No more .sh and .bat build scripts. You're welcome. Currently lack any way to build because the library is still being rewritten.
+* Project will use cmake in the future. No more .sh and .bat build scripts. You're welcome. Currently lack any way to build because the library is still being rewritten and there is nothing to build.
