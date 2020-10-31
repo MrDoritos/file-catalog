@@ -1,6 +1,0 @@
-[CHKSUM,ID,DATA_LENGTH,DATA]
-
-CHKSUM = 8 octets
-ID = 4 octets
-DATA_LENGTH = 8 octets
-DATA = variable
