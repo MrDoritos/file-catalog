@@ -1,6 +1,7 @@
 #pragma once
 #include <string.h>
 
+#include "sha.h"
 #include "jaggedbitarray.h"
 
 class file {
@@ -12,6 +13,10 @@ class file {
 	
 	int id;
 	const char* name;
+	uint64_t size;
+	
+	__time64_t date;
+	sha256 hash;
 	
 	jaggedbitarray archives;
 	jaggedbitarray tags;	

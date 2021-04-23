@@ -127,7 +127,6 @@ class objectHandler {
 		return false;
 	}
 	
-	private:
 	intobjectarray<T> Ts;
 	idManager Tids;
 };
