@@ -6,8 +6,10 @@
 #include "file.h"
 #include "objectHandler.h"
 
+#define __index cindex
+
 //Safe to say, index can now be stripped of previous bloat
-class index {
+class __index {
 	public:
 	//Binding functions. These are necessary for forward and reverse lookup
 	//If these functions are not called, I cannot guarrantee functionality

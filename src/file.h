@@ -1,6 +1,8 @@
 #pragma once
 #include <string.h>
 
+typedef long long int __time64_t;
+
 #include "sha.h"
 #include "jaggedbitarray.h"
 
