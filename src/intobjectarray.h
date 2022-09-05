@@ -86,9 +86,10 @@ public:
 		if (allocmap.exists(IOA_BLOCKOF(pos))) {
 			map[getIndex(pos)][IOA_INDEXOF(pos)] = t;
 			available_map.add(pos);
+			return t;
 		} else {
 			alloc(IOA_BLOCKOF(pos));
-			add(t, pos);
+			return add(t, pos);
 		}
 	}
 	
